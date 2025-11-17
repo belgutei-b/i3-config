@@ -176,6 +176,10 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
+# Enable back-and-forth workspace switching
+workspace_auto_back_and_forth yes
+bindsym $mod+Tab workspace back_and_forth
+ 
 bindsym $mod+r mode "resize"
 
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
@@ -190,8 +194,8 @@ bar {
 }
 
 # Gaps between applications and monitor border
-gaps inner 12px
-gaps outer 2px
+gaps inner 0px
+gaps outer 0px
 # class                 border   background text     indicator child_border
 client.focused          #83a598  #1d2021   #ebdbb2  #83a598   #83a598
 client.focused_inactive #665c54  #1d2021   #a89984  #3c3836   #3c3836
