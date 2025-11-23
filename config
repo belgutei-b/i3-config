@@ -9,6 +9,7 @@ set $mod Mod1
 font pango:monospace 9
 
 exec --no-startup-id touchegg
+
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
@@ -47,9 +48,6 @@ set $refresh_i3status killall -SIGUSR1 i3status
 # bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 # bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
@@ -99,14 +97,8 @@ bindsym $mod+e layout toggle split
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
-# change focus between tiling / floating windows
-# bindsym $mod+space focus mode_toggle
-
 # focus the parent container
 bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
 
 #Hide window title bar
 default_border pixel 1
@@ -159,12 +151,6 @@ bindsym $mod+Shift+r restart
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym h resize shrink width 4 px or 4 ppt
         bindsym k resize grow height 4 px or 4 ppt
         bindsym j resize shrink height 4 px or 4 ppt
@@ -179,14 +165,13 @@ mode "resize" {
 # Enable back-and-forth workspace switching
 workspace_auto_back_and_forth yes
 bindsym $mod+Tab workspace back_and_forth
- 
+
 bindsym $mod+r mode "resize"
 
-# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-         status_command i3status
+    status_command i3status
  	position top
  	mode hide
 	hidden_state hide
@@ -204,5 +189,3 @@ client.urgent           #fb4934  #cc241d   #1d2021  #fb4934   #fb4934
 client.placeholder      #282828  #1d2021   #ebdbb2  #282828   #282828
 
 client.background       #1d2021
-
-# for_window [class=".*"] border pixel 1 
