@@ -2,6 +2,8 @@
 
 My personal i3 tiling window manager configuration which I use on Lenova Yoga 7 (14 inch).
 
+![desktop-1](./images/linux-1.png)
+
 # Dependencies
 - Kitty (Terminal)
 - dunst (Notification)
